@@ -37,7 +37,7 @@ export const registerUser = createAsyncThunk(
       localStorage.setItem('refreshToken', response.refreshToken);
       return response.user;
     } catch (err) {
-      return rejectWithValue('Ошибка регистрации');
+      return rejectWithValue('Ошибка, не удалось зарегистрироваться');
     }
   }
 );
@@ -54,7 +54,7 @@ export const loginUser = createAsyncThunk(
       localStorage.setItem('refreshToken', response.refreshToken);
       return response.user;
     } catch (err) {
-      return rejectWithValue('Неверный email или пароль');
+      return rejectWithValue('Ошибка, неверный email или пароль');
     }
   }
 );
@@ -68,7 +68,7 @@ export const logoutUser = createAsyncThunk(
       localStorage.clear();
       return response;
     } catch (err) {
-      return rejectWithValue('Ошибка выполнения выхода');
+      return rejectWithValue('Ошибка, не удалось выполнить выход');
     }
   }
 );
@@ -83,17 +83,17 @@ export const editUser = createAsyncThunk(
       }
       return response.user;
     } catch (err) {
-      return rejectWithValue('Ошибка обновления профиля');
+      return rejectWithValue('Ошибка, не удалось обновить профиль');
     }
   }
 );
 
 export const getUser = createAsyncThunk(
-  'user/checkAuth',
+  'user/get',
   async (_, { rejectWithValue }) => {
     try {
       if (!getCookie('accessToken')) {
-        return rejectWithValue('Нет accessToken');
+        return rejectWithValue('accessToken истек');
       }
 
       const res = await getUserApi();
@@ -102,7 +102,7 @@ export const getUser = createAsyncThunk(
       }
       return res.user;
     } catch (err) {
-      return rejectWithValue('Ошибка получения данных пользователя');
+      return rejectWithValue('Ошибка не удалосб получить данные профиля');
     }
   }
 );
@@ -110,14 +110,7 @@ export const getUser = createAsyncThunk(
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    setIsAuthChecked: (state, action: PayloadAction<boolean>) => {
-      state._inited = action.payload;
-    },
-    setUser: (state, action: PayloadAction<TUser>) => {
-      state.data = action.payload;
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {

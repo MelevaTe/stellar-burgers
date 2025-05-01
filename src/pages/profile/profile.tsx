@@ -3,9 +3,11 @@ import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import {
   fetchProfile,
+  selectIsLoading,
   selectProfile
 } from '../../services/Profile/slice/ProfileSlice';
 import { editUser } from '../../services/User/slice/UserSlice';
+import { Preloader } from '@ui';
 
 export const Profile: FC = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ export const Profile: FC = () => {
     dispatch(fetchProfile());
   }, [dispatch]);
   const user = useSelector(selectProfile);
+  const isLoading = useSelector(selectIsLoading);
 
   if (!user) {
     return null;
@@ -64,6 +67,10 @@ export const Profile: FC = () => {
       [e.target.name]: e.target.value
     }));
   };
+
+  if (isLoading) {
+    return <Preloader />;
+  }
 
   return (
     <ProfileUI

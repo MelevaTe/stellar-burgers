@@ -16,16 +16,13 @@ export const ProtectedRoute = ({
   const location = useLocation();
 
   if (!onlyUnAuth && !user) {
-    console.log('!onlyUnAuth && !user');
     return <Navigate to='/login' state={{ from: location }} />;
   }
 
   if (onlyUnAuth && user) {
-    console.log('onlyUnAuth && user');
     const { from } = location.state ?? { from: { pathname: '/' } };
     return <Navigate to={from} />;
   }
 
-  console.log('last return');
   return element;
 };

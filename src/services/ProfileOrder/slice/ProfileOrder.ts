@@ -1,14 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-  getOrdersApi,
-  getUserApi,
-  loginUserApi,
-  registerUserApi,
-  TLoginData,
-  TRegisterData
-} from '../../../utils/burger-api';
-import { TOrder, TOrdersData, TUser } from '@utils-types';
-import { setCookie } from '../../../utils/cookie';
+import { getOrdersApi } from '../../../utils/burger-api';
+import { TOrder } from '@utils-types';
 
 export interface userSchema {
   data?: TOrder[];

@@ -18,24 +18,16 @@ import styles from './app.module.css';
 import { AppHeader } from '@components';
 import { Modal } from '@components';
 import { OrderInfo, IngredientDetails } from '@components';
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch } from '../../services/store';
 import { fetchIngredients } from '../../services/Ingredients/slice/IngredientsSlice';
 import { ProtectedRoute } from '../protectedRoute/protectedRoute';
-import {
-  getUser,
-  selectInited,
-  selectUser
-} from '../../services/User/slice/UserSlice';
+import { getUser } from '../../services/User/slice/UserSlice';
 
 const App = () => {
   const location = useLocation();
   const background = location.state?.background;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const isAuthChecked = useSelector(selectInited);
-  console.log('userAPP', user);
-  console.log('isAuthCheckedAPP', isAuthChecked);
 
   useEffect(() => {
     dispatch(fetchIngredients());
