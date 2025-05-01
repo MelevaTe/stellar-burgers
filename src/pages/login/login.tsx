@@ -2,7 +2,12 @@ import { FC, SyntheticEvent, useEffect, useState } from 'react';
 import { LoginUI } from '@ui-pages';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from '../../services/store';
-import { loginUser, selectInited } from '../../services/User/slice/UserSlice';
+import {
+  loginUser,
+  selectInited,
+  selectIsLoading
+} from '../../services/User/slice/UserSlice';
+import { Preloader } from '@ui';
 
 export const Login: FC = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +16,7 @@ export const Login: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const inited = useSelector(selectInited);
+  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -22,6 +28,10 @@ export const Login: FC = () => {
       navigate('/', { replace: true });
     }
   }, [inited, navigate]);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
 
   return (
     <LoginUI

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getFeedsApi } from '../../../utils/burger-api';
-import { TOrder, TOrdersData } from '@utils-types';
+import { TOrdersData } from '@utils-types';
 
 export interface feedsSchema {
   data?: TOrdersData;
