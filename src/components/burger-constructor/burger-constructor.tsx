@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
-import { BurgerConstructorUI, Preloader } from '@ui';
+import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '../../services/store';
 import {
   burgerConstructorSlice,
@@ -22,11 +22,11 @@ export const BurgerConstructor: FC = () => {
   const orderRequest = useSelector(selectIsLoading);
   const isAuthChecked = useSelector(selectInited);
   const navigate = useNavigate();
-  const isLoading = useSelector(selectIsLoading);
 
   const onOrderClick = () => {
     if (!isAuthChecked) {
       navigate('/login');
+      return;
     }
     if (!constructorItems.bun || orderRequest) return;
     const ingredientIds = [
@@ -50,10 +50,6 @@ export const BurgerConstructor: FC = () => {
       ),
     [constructorItems]
   );
-
-  if (isLoading) {
-    return <Preloader />;
-  }
 
   return (
     <BurgerConstructorUI

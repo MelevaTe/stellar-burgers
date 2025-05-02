@@ -16,16 +16,18 @@ const initialState: orderSchema = {
 
 export const sendOrder = createAsyncThunk(
   'order/sendOrder',
-  async (ingredients: string[]) => {
+  async (ingredients: string[], { dispatch }) => {
     const response = await orderBurgerApi(ingredients);
+    dispatch(orderSlice.actions.clearOrder());
     return response;
   }
 );
 
 export const getOrderByNumber = createAsyncThunk(
   'order/getOrderNumber',
-  async (number: number) => {
+  async (number: number, { dispatch }) => {
     const response = await getOrderByNumberApi(number);
+    dispatch(orderSlice.actions.clearOrder());
     return response;
   }
 );
@@ -36,6 +38,8 @@ export const orderSlice = createSlice({
   reducers: {
     clearOrder: (state) => {
       state.order = null;
+      state.isLoading = false;
+      state.error = undefined;
     }
   },
   extraReducers: (builder) => {

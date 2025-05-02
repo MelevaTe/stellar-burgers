@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useLocation,
+  useMatch,
+  useNavigate
+} from 'react-router-dom';
 
 import {
   ConstructorPage,
@@ -28,6 +34,8 @@ const App = () => {
   const background = location.state?.background;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const orderNumber = useMatch('/profile/orders/:number')?.params.number;
+  const feedNubmer = useMatch('/feed/:number')?.params.number;
 
   useEffect(() => {
     dispatch(fetchIngredients());
@@ -45,11 +53,26 @@ const App = () => {
           path='/feed/:number'
           element={
             <div className={styles.detailPageWrap}>
+              <p
+                className={`text text_type_digits-default ${styles.detailHeader}`}
+              >
+                #{feedNubmer && feedNubmer.padStart(6, '0')}
+              </p>
               <OrderInfo />
             </div>
           }
         />
-        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+        <Route
+          path='/ingredients/:id'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p className={`text text_type_main-large ${styles.detailHeader}`}>
+                Детали ингредиента
+              </p>
+              <IngredientDetails />
+            </div>
+          }
+        />
         <Route
           path='/profile'
           element={<ProtectedRoute element={<Profile />} />}
@@ -58,7 +81,10 @@ const App = () => {
           path='/profile/orders'
           element={<ProtectedRoute element={<ProfileOrders />} />}
         />
-        <Route path='/profile/orders/:number' element={<OrderInfo />} />
+        <Route
+          path='/profile/orders/:number'
+          element={<ProtectedRoute element={<OrderInfo />} />}
+        />
         <Route
           path='/register'
           element={<ProtectedRoute onlyUnAuth element={<Register />} />}
@@ -83,7 +109,7 @@ const App = () => {
           <Route
             path='/feed/:number'
             element={
-              <Modal title='Детали заказа' onClose={() => navigate(-1)}>
+              <Modal title={`#${feedNubmer}`} onClose={() => navigate(-1)}>
                 <OrderInfo />
               </Modal>
             }
@@ -99,7 +125,7 @@ const App = () => {
           <Route
             path='/profile/orders/:number'
             element={
-              <Modal title='Детали заказа' onClose={() => navigate(-1)}>
+              <Modal title={`#${orderNumber}`} onClose={() => navigate(-1)}>
                 <OrderInfo />
               </Modal>
             }

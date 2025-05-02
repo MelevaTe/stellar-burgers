@@ -4,6 +4,7 @@ import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
 import {
   getOrderByNumber,
+  orderSlice,
   selectInfoOrder
 } from '../../services/Order/slice/OrderSlice';
 import { selectIngredients } from '../../services/Ingredients/slice/IngredientsSlice';
@@ -16,6 +17,9 @@ export const OrderInfo: FC = () => {
 
   useEffect(() => {
     dispatch(getOrderByNumber(Number(id)));
+    return () => {
+      dispatch(orderSlice.actions.clearOrder());
+    };
   }, [dispatch, id]);
 
   const orderData = useSelector(selectInfoOrder);
