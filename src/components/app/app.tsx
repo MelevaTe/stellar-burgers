@@ -56,7 +56,7 @@ const App = () => {
               <p
                 className={`text text_type_digits-default ${styles.detailHeader}`}
               >
-                #{feedNubmer && feedNubmer.padStart(6, '0')}
+                #{feedNubmer}
               </p>
               <OrderInfo />
             </div>
