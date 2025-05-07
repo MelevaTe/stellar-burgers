@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getOrderByNumberApi, orderBurgerApi } from '../../../utils/burger-api';
 import { TOrder } from '@utils-types';
+import { burgerConstructorSlice } from '../../BurgerConstructor/slice/BurgerConstructorSlice';
 
 export interface orderSchema {
   order: TOrder | null;
@@ -18,7 +19,7 @@ export const sendOrder = createAsyncThunk(
   'order/sendOrder',
   async (ingredients: string[], { dispatch }) => {
     const response = await orderBurgerApi(ingredients);
-    dispatch(orderSlice.actions.clearOrder());
+    dispatch(burgerConstructorSlice.actions.clearIngredietns());
     return response;
   }
 );

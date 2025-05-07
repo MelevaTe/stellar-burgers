@@ -37,7 +37,6 @@ export const BurgerConstructor: FC = () => {
     dispatch(sendOrder(ingredientIds));
   };
   const closeOrderModal = () => {
-    dispatch(burgerConstructorSlice.actions.clearIngredietns());
     dispatch(orderSlice.actions.clearOrder());
   };
 
