@@ -102,7 +102,7 @@ export const getUser = createAsyncThunk(
       }
       return res.user;
     } catch (err) {
-      return rejectWithValue('Ошибка не удалосб получить данные профиля');
+      return rejectWithValue('Ошибка не удалось получить данные профиля');
     }
   }
 );

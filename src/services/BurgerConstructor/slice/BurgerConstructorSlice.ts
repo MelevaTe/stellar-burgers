@@ -53,8 +53,6 @@ export const burgerConstructorSlice = createSlice({
     }
   },
   selectors: {
-    getBurgerIngredientsSelector: (state) => state.ingredients,
-    getBunSelector: (state) => state.bun,
     getBurgerAllSelector: (state) => ({
       bun: state.bun,
       ingredients: state.ingredients
@@ -62,10 +60,6 @@ export const burgerConstructorSlice = createSlice({
   }
 });
 
-export const {
-  getBurgerIngredientsSelector,
-  getBunSelector,
-  getBurgerAllSelector
-} = burgerConstructorSlice.selectors;
+export const { getBurgerAllSelector } = burgerConstructorSlice.selectors;
 export const { actions: burgerConstructorActions } = burgerConstructorSlice;
 export const { reducer: burgerConstructorReducer } = burgerConstructorSlice;
