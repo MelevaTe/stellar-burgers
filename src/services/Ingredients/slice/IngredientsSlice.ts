@@ -8,7 +8,7 @@ export interface ingredientsSchema {
   error?: string;
 }
 
-const initialState: ingredientsSchema = {
+export const initialState: ingredientsSchema = {
   data: undefined,
   isLoading: false,
   error: undefined

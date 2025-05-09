@@ -8,7 +8,7 @@ export interface ProfileSchema {
   error?: string;
 }
 
-const initialState: ProfileSchema = {
+export const initialState: ProfileSchema = {
   data: {
     name: '',
     email: ''

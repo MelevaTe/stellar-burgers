@@ -18,7 +18,7 @@ export interface userSchema {
   error?: string;
 }
 
-const initialState: userSchema = {
+export const initialState: userSchema = {
   data: null,
   _inited: false,
   isLoading: false,
@@ -102,7 +102,7 @@ export const getUser = createAsyncThunk(
       }
       return res.user;
     } catch (err) {
-      return rejectWithValue('Ошибка не удалосб получить данные профиля');
+      return rejectWithValue('Ошибка не удалось получить данные профиля');
     }
   }
 );

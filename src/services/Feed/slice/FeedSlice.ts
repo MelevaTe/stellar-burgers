@@ -8,15 +8,16 @@ export interface feedsSchema {
   error?: string;
 }
 
-const initialState: feedsSchema = {
+export const initialState: feedsSchema = {
   data: undefined,
   isLoading: false,
   error: undefined
 };
 
 export const fetchFeeds = createAsyncThunk('feed/fetchFeeds', async () => {
-  const feeds = await getFeedsApi();
-  return feeds;
+  const response = await getFeedsApi();
+  const { success, ...feeds } = response;
+  return feeds as TOrdersData;
 });
 
 export const feedSlice = createSlice({
