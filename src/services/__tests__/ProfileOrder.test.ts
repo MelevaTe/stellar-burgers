@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   profileOrderReducer,
   fetchProfileOrder,
   selectProfileOrder,
@@ -51,11 +52,7 @@ describe('profileOrderSlice - Заказы пользователя', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().profileOrder;
-    expect(state).toEqual({
-      data: [],
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('fetchProfileOrder.pending устанавливает isLoading в true', () => {

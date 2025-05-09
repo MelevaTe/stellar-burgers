@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1746726139299" clover="3.2.0">
-  <project timestamp="1746726139299" name="All files">
-    <metrics statements="897" coveredstatements="635" conditionals="163" coveredconditionals="107" methods="230" coveredmethods="56" elements="1290" coveredelements="798" complexity="0" loc="897" ncloc="897" packages="9" files="10" classes="10"/>
+<coverage generated="1746780101463" clover="3.2.0">
+  <project timestamp="1746780101463" name="All files">
+    <metrics statements="896" coveredstatements="635" conditionals="163" coveredconditionals="107" methods="230" coveredmethods="56" elements="1289" coveredelements="798" complexity="0" loc="896" ncloc="896" packages="9" files="10" classes="10"/>
     <package name="services">
       <metrics statements="38" coveredstatements="38" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="store.ts" path="/Users/melevate/Desktop/stellar/stellar-burgers/src/services/store.ts">
@@ -399,9 +399,9 @@
       </file>
     </package>
     <package name="services.ProfileOrder.slice">
-      <metrics statements="57" coveredstatements="52" conditionals="22" coveredconditionals="12" methods="37" coveredmethods="8"/>
+      <metrics statements="56" coveredstatements="52" conditionals="22" coveredconditionals="12" methods="37" coveredmethods="8"/>
       <file name="ProfileOrder.ts" path="/Users/melevate/Desktop/stellar/stellar-burgers/src/services/ProfileOrder/slice/ProfileOrder.ts">
-        <metrics statements="57" coveredstatements="52" conditionals="22" coveredconditionals="12" methods="37" coveredmethods="8"/>
+        <metrics statements="56" coveredstatements="52" conditionals="22" coveredconditionals="12" methods="37" coveredmethods="8"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="0" type="cond" truecount="6" falsecount="10"/>
         <line num="3" count="1" type="stmt"/>
@@ -424,41 +424,40 @@
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="3" type="stmt"/>
         <line num="39" count="3" type="stmt"/>
         <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="48" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="49" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="50" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
       </file>
     </package>
     <package name="services.User.slice">

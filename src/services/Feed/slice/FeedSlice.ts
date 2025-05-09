@@ -8,7 +8,7 @@ export interface feedsSchema {
   error?: string;
 }
 
-const initialState: feedsSchema = {
+export const initialState: feedsSchema = {
   data: undefined,
   isLoading: false,
   error: undefined

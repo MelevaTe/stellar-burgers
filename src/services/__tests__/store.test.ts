@@ -1,5 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { rootReducer } from '../store';
+import { initialState as ingredientsInitialState } from '../Ingredients/slice/IngredientsSlice';
+import { initialState as feedsInitialState } from '../Feed/slice/FeedSlice';
+import { initialState as profileInitialState } from '../Profile/slice/ProfileSlice';
+import { initialState as userInitialState } from '../User/slice/UserSlice';
+import { initialState as profileOrderInitialState } from '../ProfileOrder/slice/ProfileOrder';
+import { initialState as burgerConstructorInitialState } from '../BurgerConstructor/slice/BurgerConstructorSlice';
+import { initialState as orderInitialState } from '../Order/slice/OrderSlice';
 
 describe('Тестирование rootReducer', () => {
   const reducer = combineReducers(rootReducer);
@@ -8,13 +15,13 @@ describe('Тестирование rootReducer', () => {
     const state = reducer(undefined, { type: 'UNKNOWN_ACTION' });
 
     expect(state).toEqual({
-      ingredients: expect.any(Object),
-      feeds: expect.any(Object),
-      profile: expect.any(Object),
-      user: expect.any(Object),
-      profileOrder: expect.any(Object),
-      burgerConstructor: expect.any(Object),
-      order: expect.any(Object)
+      ingredients: ingredientsInitialState,
+      feeds: feedsInitialState,
+      profile: profileInitialState,
+      user: userInitialState,
+      profileOrder: profileOrderInitialState,
+      burgerConstructor: burgerConstructorInitialState,
+      order: orderInitialState
     });
   });
 });

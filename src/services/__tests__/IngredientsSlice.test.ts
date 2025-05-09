@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   ingredienReducer,
   fetchIngredients,
   selectIngredients,
@@ -19,11 +20,7 @@ describe('ingredienSlice - Ингредиенты', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().ingredients;
-    expect(state).toEqual({
-      data: undefined,
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('fetchIngredients.pending устанавливает isLoading в true', () => {

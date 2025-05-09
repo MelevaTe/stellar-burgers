@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   orderReducer,
   sendOrder,
   getOrderByNumber,
@@ -41,11 +42,7 @@ describe('orderSlice - Заказ', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().order;
-    expect(state).toEqual({
-      order: null,
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('sendOrder.pending устанавливает isLoading в true', () => {

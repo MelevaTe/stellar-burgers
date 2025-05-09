@@ -6,7 +6,7 @@ export interface burgerConstructorSchema {
   ingredients: TConstructorIngredient[];
 }
 
-const initialState: burgerConstructorSchema = {
+export const initialState: burgerConstructorSchema = {
   bun: null,
   ingredients: []
 };

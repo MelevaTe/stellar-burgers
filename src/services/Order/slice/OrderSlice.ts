@@ -9,7 +9,7 @@ export interface orderSchema {
   error?: string;
 }
 
-const initialState: orderSchema = {
+export const initialState: orderSchema = {
   order: null,
   isLoading: false,
   error: undefined

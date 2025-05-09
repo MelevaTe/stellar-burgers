@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   profileReducer,
   fetchProfile,
   selectProfile,
@@ -24,14 +25,7 @@ describe('profileSlice - Профиль пользователя', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().profile;
-    expect(state).toEqual({
-      data: {
-        name: '',
-        email: ''
-      },
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('fetchProfile.pending устанавливает isLoading в true', () => {

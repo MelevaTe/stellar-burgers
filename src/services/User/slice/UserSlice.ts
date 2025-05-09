@@ -18,7 +18,7 @@ export interface userSchema {
   error?: string;
 }
 
-const initialState: userSchema = {
+export const initialState: userSchema = {
   data: null,
   _inited: false,
   isLoading: false,

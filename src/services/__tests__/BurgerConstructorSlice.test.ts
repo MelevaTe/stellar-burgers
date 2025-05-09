@@ -1,4 +1,5 @@
 import {
+  initialState,
   burgerConstructorReducer,
   burgerConstructorActions,
   getBurgerAllSelector
@@ -7,11 +8,6 @@ import { TConstructorIngredient } from '@utils-types';
 import { configureStore } from '@reduxjs/toolkit';
 
 describe('Тестирование редьюсера BurgerConstructor', () => {
-  const initialState = {
-    bun: null,
-    ingredients: []
-  };
-
   const mockIngredient: TConstructorIngredient = {
     _id: '643d69a5c3f7b9001cfa093e',
     name: 'Филе Люминесцентного тетраодонтимформа',

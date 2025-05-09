@@ -8,7 +8,7 @@ export interface userSchema {
   error?: string;
 }
 
-const initialState: userSchema = {
+export const initialState: userSchema = {
   data: [],
   isLoading: false,
   error: undefined

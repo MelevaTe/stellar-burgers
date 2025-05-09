@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   userReducer,
   registerUser,
   loginUser,
@@ -45,12 +46,7 @@ describe('userSlice - Пользователь', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().user;
-    expect(state).toEqual({
-      data: null,
-      _inited: false,
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('registerUser.pending устанавливает isLoading в true', () => {

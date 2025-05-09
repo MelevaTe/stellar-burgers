@@ -1,5 +1,6 @@
 import { configureStore, Store } from '@reduxjs/toolkit';
 import {
+  initialState,
   feedReducer,
   fetchFeeds,
   selectFeeds,
@@ -21,11 +22,7 @@ describe('feedSlice - Лента заказов', () => {
 
   test('начальное состояние соответствует ожидаемому', () => {
     const state = store.getState().feeds;
-    expect(state).toEqual({
-      data: undefined,
-      isLoading: false,
-      error: undefined
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('fetchFeeds.pending устанавливает isLoading в true', () => {
